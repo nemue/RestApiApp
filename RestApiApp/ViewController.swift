@@ -42,7 +42,12 @@ class ViewController: UIViewController {
                 self.present(alert, animated: true, completion: nil)
             }
             
-            let speciesWrapper = result.value
+            guard let speciesWrapper = result.value else {
+                return  // TODO
+            }
+            self.addSpeciesFromWrapper(speciesWrapper)
+            self.isLoadingSpecies = false
+            self.tableView?.reloadData()
         })
     }
     
