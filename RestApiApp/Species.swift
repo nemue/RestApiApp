@@ -102,7 +102,8 @@ class Species {
     }
     
     class func getSpecies(completionHandler: @escaping (Result<SpeciesWrapper>) -> Void){
-        getSpeciesAtPath(Species.endpointForSpecies(), completionHandler: completionHandler)
+        let endpoint = self.endpointForSpecies()
+        getSpeciesAtPath(endpoint, completionHandler: completionHandler)
     }
     
     class func getMoreSpecies(_ wrapper: SpeciesWrapper?, completionHandler: @escaping (Result<SpeciesWrapper>) -> Void) {

@@ -33,9 +33,28 @@ class ViewController: UIViewController {
     
     func loadFirstSpecies() {
         isLoadingSpecies = true
-        Species.getSpecies (completionHandler: { result in // ANDERS ALS IM TUT
-            // HIER WEITER
+        Species.getSpecies (completionHandler: { result in // ANDERS ALS IM TUT -> "trailing closure"
+            
+            if let error = result.error {
+                self.isLoadingSpecies = false
+                let alert = UIAlertController(title: "Error", message: "Could not load first species: \(error.localizedDescription)", preferredStyle: UIAlertControllerStyle.alert)
+                alert.addAction(UIAlertAction(title: "Click", style: UIAlertActionStyle.default, handler: nil))
+                self.present(alert, animated: true, completion: nil)
+            }
+            
+            let speciesWrapper = result.value
         })
+    }
+    
+    func addSpeciesFromWrapper(_ wrapper: SpeciesWrapper){
+        self.speciesWrapper = wrapper
+        
+        if self.species == nil {
+            self.species = self.speciesWrapper?.species
+        }
+        else {
+            self.species = self.species! + self.speciesWrapper!.species!
+        }
     }
 }
 
@@ -59,4 +78,5 @@ extension ViewController: UITableViewDelegate {
         // TODO
     }
 }
+
 
