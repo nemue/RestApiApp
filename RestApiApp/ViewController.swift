@@ -33,7 +33,7 @@ class ViewController: UIViewController {
     
     func loadFirstSpecies() {
         isLoadingSpecies = true
-        Species.getSpecies (completionHandler: { result in // ANDERS ALS IM TUT -> "trailing closure"
+        Species.getSpecies { result in
             
             if let error = result.error {
                 self.isLoadingSpecies = false
@@ -41,14 +41,37 @@ class ViewController: UIViewController {
                 alert.addAction(UIAlertAction(title: "Click", style: UIAlertActionStyle.default, handler: nil))
                 self.present(alert, animated: true, completion: nil)
             }
-            
-            guard let speciesWrapper = result.value else {
-                return  // TODO
+
+            else if let speciesWrapper = result.value {
+                self.addSpeciesFromWrapper(speciesWrapper)
+                self.isLoadingSpecies = false
+                self.tableView?.reloadData()
             }
-            self.addSpeciesFromWrapper(speciesWrapper)
-            self.isLoadingSpecies = false
-            self.tableView?.reloadData()
-        })
+        }
+    }
+    
+    func loadMoreSpecies() {
+        self.isLoadingSpecies = true
+        if let species = self.species,
+            let wrapper = self.speciesWrapper,
+            let totalSpeciesCount = wrapper.count,
+            species.count < totalSpeciesCount {
+            Species.getNextSpeciesWrapper(wrapper){ result in
+                
+                if let error = result.error {
+                    self.isLoadingSpecies = false
+                    let alert = UIAlertController(title: "Error", message: "Could not load more species: \(error.localizedDescription)", preferredStyle: UIAlertControllerStyle.alert)
+                    alert.addAction(UIAlertAction(title: "Click", style: UIAlertActionStyle.default, handler: nil))
+                    self.present(alert, animated: true, completion: nil)
+                }
+                
+                else if let moreWrapper = result.value {
+                    self.addSpeciesFromWrapper(moreWrapper)
+                    self.isLoadingSpecies = false
+                    self.tableView?.reloadData()
+                }
+            }
+        }
     }
     
     func addSpeciesFromWrapper(_ wrapper: SpeciesWrapper){
@@ -67,11 +90,31 @@ class ViewController: UIViewController {
 
 extension ViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        if self.species == nil {
+            return 0
+        }
+        return self.species!.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath)
+        
+        if let species = self.species, species.count >= indexPath.row {
+            let speciesToShow = species[indexPath.row]
+            cell.textLabel?.text = speciesToShow.name
+            cell.detailTextLabel?.text = speciesToShow.classification
+            
+            let rowsToLoadFromBottom = 5
+            let rowsLoaded = species.count
+            
+            if (!self.isLoadingSpecies && (indexPath.row >= (rowsLoaded - rowsToLoadFromBottom))){
+                let totalRows = self.speciesWrapper?.count ?? 0
+                let remainingSpeciesTolLoad = totalRows - rowsLoaded
+                if (remainingSpeciesTolLoad > 0) {
+                    self.loadMoreSpecies()
+                }
+            }
+        }
         return cell
     }
 }

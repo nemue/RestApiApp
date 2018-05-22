@@ -106,7 +106,7 @@ class Species {
         getSpeciesAtPath(endpoint, completionHandler: completionHandler)
     }
     
-    class func getMoreSpecies(_ wrapper: SpeciesWrapper?, completionHandler: @escaping (Result<SpeciesWrapper>) -> Void) {
+    class func getNextSpeciesWrapper(_ wrapper: SpeciesWrapper?, completionHandler: @escaping (Result<SpeciesWrapper>) -> Void) {
         guard let nextUrl = wrapper?.next else {
             let error = BackendError.objectSerialization(reason: "Did not get wrapper for more species")
             completionHandler(Result.failure(error))
