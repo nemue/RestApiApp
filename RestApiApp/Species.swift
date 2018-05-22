@@ -39,13 +39,13 @@ class Species {
         self.averageHeight = json[SpeciesField.AverageHeight.rawValue] as? Int
     }
     
-    // MARK: - API Endpoints
+    // MARK: - API Endpoint
     
     class func endpointForSpecies() -> String {
         return "https://swapi.co/api/species/"
     }
     
-    // MARK: - Private Methods
+    // MARK: - Private Static Methods
     
     private class func speciesArrayFromResponse(_ response: DataResponse<Any>) -> Result<SpeciesWrapper>{
         guard response.result.error == nil else {
@@ -77,6 +77,9 @@ class Species {
     
     private class func getSpeciesAtPath(_ path: String,
                                         completionHandler: @escaping (Result<SpeciesWrapper>) -> Void) {
+        
+        // URL must be https:
+        
         guard var urlComponents = URLComponents(string: path) else {
             let error = BackendError.urlError(reason: "Tried to load an invalid URL")
             completionHandler(Result.failure(error))
@@ -91,6 +94,8 @@ class Species {
             return
         }
         
+        // API request:
+        
         let _ = Alamofire.request(url).responseJSON { response in
             if let error = response.result.error {
                 completionHandler(Result.failure(error))
@@ -101,7 +106,9 @@ class Species {
         }
     }
     
-    class func getSpecies(completionHandler: @escaping (Result<SpeciesWrapper>) -> Void){
+    // MARK: - Internal Static Methods
+    
+    class func getSpeciesFromFirstWrapper(completionHandler: @escaping (Result<SpeciesWrapper>) -> Void){
         let endpoint = self.endpointForSpecies()
         getSpeciesAtPath(endpoint, completionHandler: completionHandler)
     }

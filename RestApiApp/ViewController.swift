@@ -26,22 +26,21 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.tableView?.contentInset = UIEdgeInsetsMake(20.0, 0.0, 0.0, 0.0)
-        self.loadFirstSpecies()
+        self.loadSpeciesFromFirstWrapper()
     }
     
     // MARK: - Private Methods
     
-    func loadFirstSpecies() {
+    private func loadSpeciesFromFirstWrapper() {
+        print("loadSpeciesFromFirstWrapper")
         isLoadingSpecies = true
         Species.getSpecies { result in
-            
             if let error = result.error {
                 self.isLoadingSpecies = false
                 let alert = UIAlertController(title: "Error", message: "Could not load first species: \(error.localizedDescription)", preferredStyle: UIAlertControllerStyle.alert)
                 alert.addAction(UIAlertAction(title: "Click", style: UIAlertActionStyle.default, handler: nil))
                 self.present(alert, animated: true, completion: nil)
             }
-
             else if let speciesWrapper = result.value {
                 self.addSpeciesFromWrapper(speciesWrapper)
                 self.isLoadingSpecies = false
@@ -50,7 +49,8 @@ class ViewController: UIViewController {
         }
     }
     
-    func loadMoreSpecies() {
+    private func loadSpeciesFromNextWrapper() {
+        print("loadSpeciesFromNextWrapper")
         self.isLoadingSpecies = true
         if let species = self.species,
             let wrapper = self.speciesWrapper,
@@ -74,7 +74,7 @@ class ViewController: UIViewController {
         }
     }
     
-    func addSpeciesFromWrapper(_ wrapper: SpeciesWrapper){
+    private func addSpeciesFromWrapper(_ wrapper: SpeciesWrapper){
         self.speciesWrapper = wrapper
         
         if self.species == nil {
@@ -111,11 +111,21 @@ extension ViewController: UITableViewDataSource {
                 let totalRows = self.speciesWrapper?.count ?? 0
                 let remainingSpeciesTolLoad = totalRows - rowsLoaded
                 if (remainingSpeciesTolLoad > 0) {
-                    self.loadMoreSpecies()
+                    self.loadSpeciesFromNextWrapper()
                 }
             }
         }
+        colorCell(cell: cell, indexPath: indexPath)
+        
         return cell
+    }
+    
+    func colorCell(cell: UITableViewCell, indexPath: IndexPath){
+        if (indexPath.row % 2 == 0){
+            cell.backgroundColor = UIColor(red: 0.9, green: 0.9, blue: 0.9, alpha: 1.0)
+        } else {
+            cell.backgroundColor = UIColor.white
+        }
     }
 }
 
