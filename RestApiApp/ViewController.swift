@@ -34,7 +34,7 @@ class ViewController: UIViewController {
     private func loadSpeciesFromFirstWrapper() {
         print("loadSpeciesFromFirstWrapper")
         isLoadingSpecies = true
-        Species.getSpecies { result in
+        Species.getFirstSpeciesWrapper { result in
             if let error = result.error {
                 self.isLoadingSpecies = false
                 let alert = UIAlertController(title: "Error", message: "Could not load first species: \(error.localizedDescription)", preferredStyle: UIAlertControllerStyle.alert)

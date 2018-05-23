@@ -108,7 +108,7 @@ class Species {
     
     // MARK: - Internal Static Methods
     
-    class func getSpeciesFromFirstWrapper(completionHandler: @escaping (Result<SpeciesWrapper>) -> Void){
+    class func getFirstSpeciesWrapper(completionHandler: @escaping (Result<SpeciesWrapper>) -> Void){
         let endpoint = self.endpointForSpecies()
         getSpeciesAtPath(endpoint, completionHandler: completionHandler)
     }
