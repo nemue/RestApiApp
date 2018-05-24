@@ -9,13 +9,15 @@
 /* Begin PBXBuildFile section */
 		21C6A2C41A659FDE871DED79 /* Pods_RestApiApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8FF15756B73EE1CD543FB5D4 /* Pods_RestApiApp.framework */; };
 		F7E4B8C120A1DBBD00364AE4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7E4B8C020A1DBBD00364AE4 /* AppDelegate.swift */; };
-		F7E4B8C320A1DBBD00364AE4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7E4B8C220A1DBBD00364AE4 /* ViewController.swift */; };
+		F7E4B8C320A1DBBD00364AE4 /* SpeciesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7E4B8C220A1DBBD00364AE4 /* SpeciesViewController.swift */; };
 		F7E4B8C620A1DBBD00364AE4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F7E4B8C420A1DBBD00364AE4 /* Main.storyboard */; };
 		F7E4B8C820A1DBBD00364AE4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F7E4B8C720A1DBBD00364AE4 /* Assets.xcassets */; };
 		F7E4B8CB20A1DBBD00364AE4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F7E4B8C920A1DBBD00364AE4 /* LaunchScreen.storyboard */; };
 		F7E4B8D620A1DBBD00364AE4 /* RestApiAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7E4B8D520A1DBBD00364AE4 /* RestApiAppTests.swift */; };
 		F7E4B8E120A300FF00364AE4 /* Species.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7E4B8E020A300FF00364AE4 /* Species.swift */; };
 		F7E4B8E320A3014700364AE4 /* SpeciesWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7E4B8E220A3014700364AE4 /* SpeciesWrapper.swift */; };
+		F7F8AF9820B6D6F200D67E33 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7F8AF9720B6D6F200D67E33 /* NetworkManager.swift */; };
+		F7F8AF9A20B6E70000D67E33 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7F8AF9920B6E70000D67E33 /* Constants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,7 +36,7 @@
 		C9BE0B3AFB24A84D9A2826BC /* Pods-RestApiApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RestApiApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-RestApiApp/Pods-RestApiApp.release.xcconfig"; sourceTree = "<group>"; };
 		F7E4B8BD20A1DBBD00364AE4 /* RestApiApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RestApiApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F7E4B8C020A1DBBD00364AE4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		F7E4B8C220A1DBBD00364AE4 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		F7E4B8C220A1DBBD00364AE4 /* SpeciesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeciesViewController.swift; sourceTree = "<group>"; };
 		F7E4B8C520A1DBBD00364AE4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		F7E4B8C720A1DBBD00364AE4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F7E4B8CA20A1DBBD00364AE4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -44,6 +46,8 @@
 		F7E4B8D720A1DBBD00364AE4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F7E4B8E020A300FF00364AE4 /* Species.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Species.swift; sourceTree = "<group>"; };
 		F7E4B8E220A3014700364AE4 /* SpeciesWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeciesWrapper.swift; sourceTree = "<group>"; };
+		F7F8AF9720B6D6F200D67E33 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		F7F8AF9920B6E70000D67E33 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,7 +110,9 @@
 			isa = PBXGroup;
 			children = (
 				F7E4B8C020A1DBBD00364AE4 /* AppDelegate.swift */,
-				F7E4B8C220A1DBBD00364AE4 /* ViewController.swift */,
+				F7E4B8C220A1DBBD00364AE4 /* SpeciesViewController.swift */,
+				F7F8AF9720B6D6F200D67E33 /* NetworkManager.swift */,
+				F7F8AF9920B6E70000D67E33 /* Constants.swift */,
 				F7E4B8E020A300FF00364AE4 /* Species.swift */,
 				F7E4B8E220A3014700364AE4 /* SpeciesWrapper.swift */,
 				F7E4B8C420A1DBBD00364AE4 /* Main.storyboard */,
@@ -287,9 +293,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				F7E4B8E320A3014700364AE4 /* SpeciesWrapper.swift in Sources */,
-				F7E4B8C320A1DBBD00364AE4 /* ViewController.swift in Sources */,
+				F7E4B8C320A1DBBD00364AE4 /* SpeciesViewController.swift in Sources */,
+				F7F8AF9820B6D6F200D67E33 /* NetworkManager.swift in Sources */,
 				F7E4B8E120A300FF00364AE4 /* Species.swift in Sources */,
 				F7E4B8C120A1DBBD00364AE4 /* AppDelegate.swift in Sources */,
+				F7F8AF9A20B6E70000D67E33 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

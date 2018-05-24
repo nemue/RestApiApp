@@ -8,11 +8,11 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class SpeciesViewController: UIViewController {
     
     // MARK: - Properties
     
-    let cellIdentifier = "CellIdentifier"
+    let cellIdentifier = Constants.SpeciesViewConstants.speciesCellIdentifier
     var species: [Species]?
     var speciesWrapper: SpeciesWrapper?
     var isLoadingSpecies = false
@@ -34,7 +34,7 @@ class ViewController: UIViewController {
     private func loadSpeciesFromFirstWrapper() {
         print("loadSpeciesFromFirstWrapper")
         isLoadingSpecies = true
-        Species.getFirstSpeciesWrapper { result in
+        NetworkManager.getFirstSpeciesWrapper { result in
             if let error = result.error {
                 self.isLoadingSpecies = false
                 let alert = UIAlertController(title: "Error", message: "Could not load first species: \(error.localizedDescription)", preferredStyle: UIAlertControllerStyle.alert)
@@ -56,8 +56,8 @@ class ViewController: UIViewController {
             let wrapper = self.speciesWrapper,
             let totalSpeciesCount = wrapper.count,
             species.count < totalSpeciesCount {
-            Species.getNextSpeciesWrapper(wrapper){ result in
-                
+            
+            NetworkManager.getNextSpeciesWrapper(wrapper){ result in
                 if let error = result.error {
                     self.isLoadingSpecies = false
                     let alert = UIAlertController(title: "Error", message: "Could not load more species: \(error.localizedDescription)", preferredStyle: UIAlertControllerStyle.alert)
@@ -88,7 +88,7 @@ class ViewController: UIViewController {
 
 // MARK: – UITableView DataSource
 
-extension ViewController: UITableViewDataSource {
+extension SpeciesViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if self.species == nil {
             return 0
@@ -131,7 +131,7 @@ extension ViewController: UITableViewDataSource {
 
 // MARK: – UITableView Delegate
 
-extension ViewController: UITableViewDelegate {
+extension SpeciesViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         // TODO
     }
