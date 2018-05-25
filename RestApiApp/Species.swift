@@ -9,18 +9,17 @@
 import UIKit
 import Alamofire
 
-class Species {
+struct Species: Codable {
     
     // MARK: - Properties
     
-    var idNumber: Int?
     var name: String?
     var classification: String?
     var designation: String?
     var averageHeight: Int?
-    var skinColors: [String]?
-    var hairColors: [String]?
-    var eyeColors: [String]?
+    var skinColors: String?
+    var hairColors: String?
+    var eyeColors: String?
     var averageLifespan: String?
     var homeworld: String?
     var language: String?
@@ -29,31 +28,49 @@ class Species {
     var created: Date?
     var edited: Date?
     var url: String?
-    
-    // MARK: - Initialization
-    
-    required init(json: [String: Any]) {
-        self.name = json[SpeciesField.Name.rawValue] as? String
-        self.classification = json[SpeciesField.Classification.rawValue] as? String
-        self.designation = json[SpeciesField.Designation.rawValue] as? String
-        self.averageHeight = json[SpeciesField.AverageHeight.rawValue] as? Int
+}
+
+// MARK: - Initialization from Decoder
+
+extension Species {
+    init(from decoder: Decoder) throws {
+        let wrapperContainer = try decoder.container(keyedBy: SpeciesField.self)
+        
+        try name = wrapperContainer.decode(String?.self, forKey: .Name)
+        try classification = wrapperContainer.decode(String?.self, forKey: .Classification)
+        
+        // below properties are actually not needed yet
+        try designation = wrapperContainer.decode(String?.self, forKey: .Designation)
+        try averageHeight = Int(wrapperContainer.decode(String?.self, forKey: .AverageHeight)!)
+        try skinColors = wrapperContainer.decode(String?.self, forKey: .SkinColors)
+        try hairColors = wrapperContainer.decode(String?.self, forKey: .HairColors)
+        try eyeColors = wrapperContainer.decode(String?.self, forKey: .EyeColors)
+        try averageLifespan = wrapperContainer.decode(String?.self, forKey: .AverageLifespan)
+        try homeworld = wrapperContainer.decode(String?.self, forKey: .Homeworld)
+        try language = wrapperContainer.decode(String?.self, forKey: .Language)
+        try created = Date.fromString(date: wrapperContainer.decode(String?.self, forKey: .Created)!)
+        try edited = Date.fromString(date: wrapperContainer.decode(String?.self, forKey: .Edited)!)
+        try url = wrapperContainer.decode(String?.self, forKey: .Url)
+        
+        var peopleContainer = try wrapperContainer.nestedUnkeyedContainer(forKey: .People)
+        var allPeople: [String] = []
+        while !peopleContainer.isAtEnd {
+            allPeople += [try peopleContainer.decode(String.self)]
+        }
+        people = allPeople
+        
+        var filmContainer = try wrapperContainer.nestedUnkeyedContainer(forKey: .Films)
+        var allFilms: [String] = []
+        while !filmContainer.isAtEnd {
+            allFilms += [try filmContainer.decode(String.self)]
+        }
+        films = allFilms
     }
-    
-    
-   
-    
-    // MARK: - Private Static Methods
-    
-    
-    
-    // MARK: - Internal Static Methods
-    
-    
 }
 
 // MARK: - Enums
 
-enum SpeciesField: String {
+enum SpeciesField: String, CodingKey {
     case Name = "name"
     case Classification = "classification"
     case Designation = "designation"
@@ -70,9 +87,3 @@ enum SpeciesField: String {
     case Edited = "edited"
     case Url = "url"
 }
-
-enum BackendError: Error {
-    case urlError(reason: String)
-    case objectSerialization(reason: String)
-}
-

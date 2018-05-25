@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Alamofire
 
 class SpeciesViewController: UIViewController {
     
@@ -32,9 +33,9 @@ class SpeciesViewController: UIViewController {
     // MARK: - Private Methods
     
     private func loadSpeciesFromFirstWrapper() {
-        print("loadSpeciesFromFirstWrapper")
         isLoadingSpecies = true
-        NetworkManager.getFirstSpeciesWrapper { result in
+        
+        let completionHandler = {(result: Result<SpeciesWrapper>) in
             if let error = result.error {
                 self.isLoadingSpecies = false
                 let alert = UIAlertController(title: "Error", message: "Could not load first species: \(error.localizedDescription)", preferredStyle: UIAlertControllerStyle.alert)
@@ -47,34 +48,37 @@ class SpeciesViewController: UIViewController {
                 self.tableView?.reloadData()
             }
         }
+        
+        NetworkManager.getFirstSpeciesWrapper (completionHandler: completionHandler)
     }
     
     private func loadSpeciesFromNextWrapper() {
-        print("loadSpeciesFromNextWrapper")
         self.isLoadingSpecies = true
         if let species = self.species,
             let wrapper = self.speciesWrapper,
             let totalSpeciesCount = wrapper.count,
             species.count < totalSpeciesCount {
             
-            NetworkManager.getNextSpeciesWrapper(wrapper){ result in
+            let completionHandler = {(result: Result<SpeciesWrapper>) in
                 if let error = result.error {
                     self.isLoadingSpecies = false
                     let alert = UIAlertController(title: "Error", message: "Could not load more species: \(error.localizedDescription)", preferredStyle: UIAlertControllerStyle.alert)
                     alert.addAction(UIAlertAction(title: "Click", style: UIAlertActionStyle.default, handler: nil))
                     self.present(alert, animated: true, completion: nil)
                 }
-                
+                    
                 else if let moreWrapper = result.value {
                     self.addSpeciesFromWrapper(moreWrapper)
                     self.isLoadingSpecies = false
                     self.tableView?.reloadData()
                 }
             }
+            
+            NetworkManager.getNextSpeciesWrapper(wrapper, completionHandler: completionHandler)
         }
     }
     
-    private func addSpeciesFromWrapper(_ wrapper: SpeciesWrapper){
+    private func addSpeciesFromWrapper(_ wrapper: SpeciesWrapper){  
         self.speciesWrapper = wrapper
         
         if self.species == nil {
