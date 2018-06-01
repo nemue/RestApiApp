@@ -11,7 +11,7 @@ import Alamofire
 
 class NetworkManager {
     
-    // MARK: - Internal Static Methods
+    // MARK: - Access Methods
     
     class func getFirstSpeciesWrapper(completionHandler: @escaping (Result<SpeciesWrapper>) -> Void){
         let endpoint = Constants.Endpoints.speciesEndpoint
@@ -32,15 +32,8 @@ class NetworkManager {
     
     private class func getSpeciesAtPath(_ path: String,
                                         completionHandler: @escaping (Result<SpeciesWrapper>) -> Void) {
-        // URL must be https:
-        guard var urlComponents = URLComponents(string: path) else {
-            let error = BackendError.urlError(reason: "Tried to load an invalid URL")
-            completionHandler(Result.failure(error))
-            return
-        }
-        urlComponents.scheme = "https"
-        
-        guard let url = try? urlComponents.asURL() else {
+
+        guard let url = makeUrlHttps(path: path) else {
             let error = BackendError.urlError(reason: "Tried to load an invalid URL")
             completionHandler(Result.failure(error))
             return
@@ -52,34 +45,49 @@ class NetworkManager {
                 completionHandler(Result.failure(error))
                 return
             }
-            let speciesWrapperResult = self.parseJSON(response)
+            let speciesWrapperResult: Result<SpeciesWrapper> = self.parseJSON(response.result)
             completionHandler(speciesWrapperResult)
         }
     }
     
     // MARK: - Serialisation
     
-    private class func parseJSON(_ response: DataResponse<Data>) -> Result<SpeciesWrapper>{
-        guard response.result.error == nil else {
-            print(response.result.error!)
-            return Result.failure(response.result.error!)
+    class func parseJSON<T: Codable>(_ result: Result<Data>) -> Result<T>{
+        guard result.error == nil else {
+            print(result.error!)
+            return Result.failure(result.error!)
         }
 
-        guard let json = response.result.value else {
+        guard let json = result.value else {
             print("Didn't get species object as JSON from API")
             return Result.failure(BackendError.objectSerialization(reason: "Did not get JSON dictionary in response"))
         }
         
         let decoder = JSONDecoder()
-        var wrapper = SpeciesWrapper()
+        var wrapper: T? = nil
         do {
-            wrapper = try decoder.decode(SpeciesWrapper.self, from: json)
+            wrapper = try decoder.decode(T.self, from: json)
         }
         catch {
             print("Error decoding JSON: \(error)")
         }
         
-        return Result.success(wrapper)
+        return Result.success(wrapper!) // wrapper can't be nil after try/catch
+    }
+    
+    // MARK: - Helper Methods
+    
+    class func makeUrlHttps(path: String) -> URL?{
+        guard var urlComponents = URLComponents(string: path) else {
+            return nil
+        }
+        urlComponents.scheme = "https"
+        
+        guard let url = try? urlComponents.asURL() else {
+            return nil
+        }
+        
+        return url
     }
 }
 

@@ -21,16 +21,18 @@ extension SpeciesWrapper {
     init (from decoder: Decoder) throws {
         let speciesContainer = try decoder.container(keyedBy: SpeciesWrapperCodingKeys.self)
         
-        var results = try speciesContainer.nestedUnkeyedContainer(forKey: .Species)
-        var resultsSpecies: [Species] = []
-        while !results.isAtEnd {
-            resultsSpecies += [try results.decode(Species.self)]
+        var resultsSpecies: [Species]? = []
+        if speciesContainer.contains(.Species) {
+            var results = try speciesContainer.nestedUnkeyedContainer(forKey: .Species)
+            while !results.isAtEnd {
+                resultsSpecies?.append(try results.decode(Species.self))
+            }
         }
         species = resultsSpecies
         
-        try count = speciesContainer.decode(Int?.self, forKey: .Count)
-        try next = speciesContainer.decode(String?.self, forKey: .Next)
-        try previous = speciesContainer.decode(String?.self, forKey: .Previous)
+        try count = speciesContainer.decodeIfPresent(Int.self, forKey: .Count)
+        try next = speciesContainer.decodeIfPresent(String.self, forKey: .Next)
+        try previous = speciesContainer.decodeIfPresent(String.self, forKey: .Previous)
     }
 }
 

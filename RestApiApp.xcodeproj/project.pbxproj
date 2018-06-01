@@ -8,17 +8,19 @@
 
 /* Begin PBXBuildFile section */
 		21C6A2C41A659FDE871DED79 /* Pods_RestApiApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8FF15756B73EE1CD543FB5D4 /* Pods_RestApiApp.framework */; };
-		F7AC8FB020BC215A006A0B56 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7AC8FAF20BC215A006A0B56 /* NetworkManager.swift */; };
+		F787E26720BFEAAD002E3CBE /* Species.swift in Sources */ = {isa = PBXBuildFile; fileRef = F787E26220BFEAAD002E3CBE /* Species.swift */; };
+		F787E26820BFEAAD002E3CBE /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F787E26320BFEAAD002E3CBE /* NetworkManager.swift */; };
+		F787E26920BFEAAD002E3CBE /* SpeciesWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F787E26420BFEAAD002E3CBE /* SpeciesWrapper.swift */; };
+		F787E26A20BFEAAD002E3CBE /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = F787E26520BFEAAD002E3CBE /* Constants.swift */; };
+		F787E26B20BFEAAD002E3CBE /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F787E26620BFEAAD002E3CBE /* DateExtension.swift */; };
+		F787E27220C137BF002E3CBE /* MockSpeciesWrapper.json in Resources */ = {isa = PBXBuildFile; fileRef = F787E27120C137BF002E3CBE /* MockSpeciesWrapper.json */; };
+		F787E27420C14FE4002E3CBE /* MockEmptySpeciesWrapper.json in Resources */ = {isa = PBXBuildFile; fileRef = F787E27320C14FE4002E3CBE /* MockEmptySpeciesWrapper.json */; };
 		F7E4B8C120A1DBBD00364AE4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7E4B8C020A1DBBD00364AE4 /* AppDelegate.swift */; };
 		F7E4B8C320A1DBBD00364AE4 /* SpeciesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7E4B8C220A1DBBD00364AE4 /* SpeciesViewController.swift */; };
 		F7E4B8C620A1DBBD00364AE4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F7E4B8C420A1DBBD00364AE4 /* Main.storyboard */; };
 		F7E4B8C820A1DBBD00364AE4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F7E4B8C720A1DBBD00364AE4 /* Assets.xcassets */; };
 		F7E4B8CB20A1DBBD00364AE4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F7E4B8C920A1DBBD00364AE4 /* LaunchScreen.storyboard */; };
 		F7E4B8D620A1DBBD00364AE4 /* RestApiAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7E4B8D520A1DBBD00364AE4 /* RestApiAppTests.swift */; };
-		F7E4B8E120A300FF00364AE4 /* Species.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7E4B8E020A300FF00364AE4 /* Species.swift */; };
-		F7E4B8E320A3014700364AE4 /* SpeciesWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7E4B8E220A3014700364AE4 /* SpeciesWrapper.swift */; };
-		F7F8AF9A20B6E70000D67E33 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7F8AF9920B6E70000D67E33 /* Constants.swift */; };
-		F7F8AF9C20B80EFA00D67E33 /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7F8AF9B20B80EFA00D67E33 /* DateExtension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,7 +37,13 @@
 		8FF15756B73EE1CD543FB5D4 /* Pods_RestApiApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RestApiApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C7C0FCF55A01E76C46816BC1 /* Pods-RestApiApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RestApiApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RestApiApp/Pods-RestApiApp.debug.xcconfig"; sourceTree = "<group>"; };
 		C9BE0B3AFB24A84D9A2826BC /* Pods-RestApiApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RestApiApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-RestApiApp/Pods-RestApiApp.release.xcconfig"; sourceTree = "<group>"; };
-		F7AC8FAF20BC215A006A0B56 /* NetworkManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		F787E26220BFEAAD002E3CBE /* Species.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Species.swift; sourceTree = "<group>"; };
+		F787E26320BFEAAD002E3CBE /* NetworkManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		F787E26420BFEAAD002E3CBE /* SpeciesWrapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpeciesWrapper.swift; sourceTree = "<group>"; };
+		F787E26520BFEAAD002E3CBE /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		F787E26620BFEAAD002E3CBE /* DateExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateExtension.swift; sourceTree = "<group>"; };
+		F787E27120C137BF002E3CBE /* MockSpeciesWrapper.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = MockSpeciesWrapper.json; sourceTree = "<group>"; };
+		F787E27320C14FE4002E3CBE /* MockEmptySpeciesWrapper.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = MockEmptySpeciesWrapper.json; sourceTree = "<group>"; };
 		F7E4B8BD20A1DBBD00364AE4 /* RestApiApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RestApiApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F7E4B8C020A1DBBD00364AE4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F7E4B8C220A1DBBD00364AE4 /* SpeciesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeciesViewController.swift; sourceTree = "<group>"; };
@@ -46,10 +54,6 @@
 		F7E4B8D120A1DBBD00364AE4 /* RestApiAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RestApiAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F7E4B8D520A1DBBD00364AE4 /* RestApiAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestApiAppTests.swift; sourceTree = "<group>"; };
 		F7E4B8D720A1DBBD00364AE4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		F7E4B8E020A300FF00364AE4 /* Species.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Species.swift; sourceTree = "<group>"; };
-		F7E4B8E220A3014700364AE4 /* SpeciesWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeciesWrapper.swift; sourceTree = "<group>"; };
-		F7F8AF9920B6E70000D67E33 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
-		F7F8AF9B20B80EFA00D67E33 /* DateExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,31 +92,31 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
-		F7AC8FAB20BC2118006A0B56 /* Helpers */ = {
+		F787E26C20BFEABD002E3CBE /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
-				F7F8AF9920B6E70000D67E33 /* Constants.swift */,
-				F7F8AF9B20B80EFA00D67E33 /* DateExtension.swift */,
+				F787E26520BFEAAD002E3CBE /* Constants.swift */,
+				F787E26620BFEAAD002E3CBE /* DateExtension.swift */,
 			);
-			path = Helpers;
+			name = Helpers;
 			sourceTree = "<group>";
 		};
-		F7AC8FAE20BC215A006A0B56 /* API */ = {
+		F787E26D20BFEAE4002E3CBE /* API */ = {
 			isa = PBXGroup;
 			children = (
-				F7AC8FAF20BC215A006A0B56 /* NetworkManager.swift */,
-				F7AC8FB120BC2178006A0B56 /* Models */,
+				F787E26320BFEAAD002E3CBE /* NetworkManager.swift */,
+				F787E26E20BFEAFE002E3CBE /* Model */,
 			);
-			path = API;
+			name = API;
 			sourceTree = "<group>";
 		};
-		F7AC8FB120BC2178006A0B56 /* Models */ = {
+		F787E26E20BFEAFE002E3CBE /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				F7E4B8E220A3014700364AE4 /* SpeciesWrapper.swift */,
-				F7E4B8E020A300FF00364AE4 /* Species.swift */,
+				F787E26220BFEAAD002E3CBE /* Species.swift */,
+				F787E26420BFEAAD002E3CBE /* SpeciesWrapper.swift */,
 			);
-			path = Models;
+			name = Model;
 			sourceTree = "<group>";
 		};
 		F7E4B8B420A1DBBD00364AE4 = {
@@ -138,9 +142,9 @@
 		F7E4B8BF20A1DBBD00364AE4 /* RestApiApp */ = {
 			isa = PBXGroup;
 			children = (
+				F787E26C20BFEABD002E3CBE /* Helpers */,
+				F787E26D20BFEAE4002E3CBE /* API */,
 				F7E4B8C020A1DBBD00364AE4 /* AppDelegate.swift */,
-				F7AC8FAE20BC215A006A0B56 /* API */,
-				F7AC8FAB20BC2118006A0B56 /* Helpers */,
 				F7E4B8C220A1DBBD00364AE4 /* SpeciesViewController.swift */,
 				F7E4B8C420A1DBBD00364AE4 /* Main.storyboard */,
 				F7E4B8C720A1DBBD00364AE4 /* Assets.xcassets */,
@@ -155,6 +159,8 @@
 			children = (
 				F7E4B8D520A1DBBD00364AE4 /* RestApiAppTests.swift */,
 				F7E4B8D720A1DBBD00364AE4 /* Info.plist */,
+				F787E27120C137BF002E3CBE /* MockSpeciesWrapper.json */,
+				F787E27320C14FE4002E3CBE /* MockEmptySpeciesWrapper.json */,
 			);
 			path = RestApiAppTests;
 			sourceTree = "<group>";
@@ -255,6 +261,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F787E27420C14FE4002E3CBE /* MockEmptySpeciesWrapper.json in Resources */,
+				F787E27220C137BF002E3CBE /* MockSpeciesWrapper.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -319,13 +327,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F7E4B8E320A3014700364AE4 /* SpeciesWrapper.swift in Sources */,
-				F7F8AF9C20B80EFA00D67E33 /* DateExtension.swift in Sources */,
+				F787E26820BFEAAD002E3CBE /* NetworkManager.swift in Sources */,
+				F787E26B20BFEAAD002E3CBE /* DateExtension.swift in Sources */,
+				F787E26A20BFEAAD002E3CBE /* Constants.swift in Sources */,
 				F7E4B8C320A1DBBD00364AE4 /* SpeciesViewController.swift in Sources */,
-				F7AC8FB020BC215A006A0B56 /* NetworkManager.swift in Sources */,
-				F7E4B8E120A300FF00364AE4 /* Species.swift in Sources */,
+				F787E26720BFEAAD002E3CBE /* Species.swift in Sources */,
 				F7E4B8C120A1DBBD00364AE4 /* AppDelegate.swift in Sources */,
-				F7F8AF9A20B6E70000D67E33 /* Constants.swift in Sources */,
+				F787E26920BFEAAD002E3CBE /* SpeciesWrapper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

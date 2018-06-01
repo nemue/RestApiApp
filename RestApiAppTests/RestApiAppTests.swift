@@ -11,26 +11,49 @@ import XCTest
 
 class RestApiAppTests: XCTestCase {
     
-    override func setUp() {
-        super.setUp()
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+    func testMakeUrlHttps() {
+        let url = "http://test.com"
+        let newUrl = NetworkManager.makeUrlHttps(path: url)
+        XCTAssertTrue("https://test.com" == String(describing: newUrl!))
     }
     
-    override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-        super.tearDown()
+    func testInitFromDecoderWithFullSpecies() {
+        let filename = "MockSpeciesWrapper"
+        let wrapper = initFromDecoderWithFile(name: filename)
+        
+        XCTAssertNotNil(wrapper)
     }
     
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+    func testInitFromDecoderWithEmptySpecies() {
+        let filename = "MockEmptySpeciesWrapper"
+        let wrapper = initFromDecoderWithFile(name: filename)
+        
+        XCTAssertNotNil(wrapper)
     }
-    
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
+}
+
+// MARK: - Private Methods
+
+extension RestApiAppTests {
+    private func initFromDecoderWithFile(name: String) -> SpeciesWrapper? {
+        var data = Data()
+        var wrapper = SpeciesWrapper()
+        let bundle = Bundle(for: type(of: self))
+        
+        guard let url = bundle.url(forResource: name, withExtension: "json") else {
+            XCTFail("Missing file: \(name)")
+            return nil
         }
+        
+        do{
+            data = try Data(contentsOf: url)
+            let decoder = JSONDecoder()
+            wrapper = try decoder.decode(SpeciesWrapper.self, from: data)
+        }
+        catch {
+            XCTFail("Wrapper couldn't be created or decoded: url: \(url)")
+        }
+        
+        return wrapper
     }
-    
 }
