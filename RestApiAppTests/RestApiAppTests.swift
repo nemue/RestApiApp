@@ -11,6 +11,8 @@ import XCTest
 
 class RestApiAppTests: XCTestCase {
     
+    // MARK: Network Manager Tests
+    
     func testMakeUrlHttps() {
         let url = "http://test.com"
         let newUrl = NetworkManager.makeUrlHttps(path: url)
@@ -29,6 +31,28 @@ class RestApiAppTests: XCTestCase {
         let wrapper = initFromDecoderWithFile(name: filename)
         
         XCTAssertNotNil(wrapper)
+    }
+    
+    // MARK: - Date Extension Tests
+    
+    func testDateFromString() {
+        let dateString: String = "2018-06-06T12:27:22.877000Z"
+        guard let date: Date = Date.fromString(date: dateString) else {
+            XCTFail("String could not be converted to Date.")
+            return
+        }
+        
+        XCTAssertNotNil(date)
+        XCTAssert(type(of: date) == Date.self)
+    }
+    
+    // MARK: - Performance Test
+    
+    func testPerformanceLoadFirstSpecies() {
+        let speciesViewController = SpeciesViewController()
+        measure {
+            speciesViewController.loadSpeciesFromFirstWrapper()
+        }
     }
 }
 

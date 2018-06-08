@@ -32,7 +32,7 @@ class SpeciesViewController: UIViewController {
     
     // MARK: - Private Methods
     
-    private func loadSpeciesFromFirstWrapper() {
+    func loadSpeciesFromFirstWrapper() {
         isLoadingSpecies = true
         
         let completionHandler = {(result: Result<SpeciesWrapper>) in

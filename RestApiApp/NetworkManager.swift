@@ -31,7 +31,7 @@ class NetworkManager {
     // MARK: - Network Requests
     
     private class func getSpeciesAtPath(_ path: String,
-                                        completionHandler: @escaping (Result<SpeciesWrapper>) -> Void) {
+                                        completionHandler: @escaping (Result<SpeciesWrapper>) -> Void, useAlamofire: Bool? = true) {
 
         guard let url = makeUrlHttps(path: path) else {
             let error = BackendError.urlError(reason: "Tried to load an invalid URL")
@@ -40,6 +40,7 @@ class NetworkManager {
         }
         
         // API request:
+        
         let _ = Alamofire.request(url).responseData { response in
             if let error = response.result.error {
                 completionHandler(Result.failure(error))

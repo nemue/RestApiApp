@@ -54,13 +54,13 @@ extension Species {
         // Non-String Properties
         
         let averageHeightAsString = try wrapperContainer.decodeIfPresent(String.self, forKey: .AverageHeight)
-        self.averageHeight = anyTypeFromOptionalString(type: self.averageHeight, optional: averageHeightAsString) as? Int
+        self.averageHeight = anyTypeFromOptionalString(typeOf: self.averageHeight, optional: averageHeightAsString) as? Int
 
         let createdAsString = try wrapperContainer.decodeIfPresent(String.self, forKey: .Created)
-        self.created = anyTypeFromOptionalString(type: self.created, optional: createdAsString) as? Date
+        self.created = anyTypeFromOptionalString(typeOf: self.created, optional: createdAsString) as? Date
         
         let editedAsString = try wrapperContainer.decodeIfPresent(String.self, forKey: .Edited)
-        self.edited = anyTypeFromOptionalString(type: self.edited, optional: editedAsString) as? Date
+        self.edited = anyTypeFromOptionalString(typeOf: self.edited, optional: editedAsString) as? Date
         
         // Array Properties
         
@@ -108,11 +108,11 @@ extension Species {
         return returnValue
     }
     
-    private func anyTypeFromOptionalString<T>(type: T, optional: String?) -> T? {
+    private func anyTypeFromOptionalString<T>(typeOf: T, optional: String?) -> T? {
         var returnValue: T? = nil
         
         if let value = optional {
-            switch type {
+            switch typeOf {
             case is Int:
                 returnValue = Int(value) as? T
             case is Date:

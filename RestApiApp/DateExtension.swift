@@ -11,7 +11,7 @@ import Foundation
 extension Date {
     static func fromString(date: String) -> Date? {
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
+        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
         
         guard let returnDate = dateFormatter.date(from: date) else {
             return nil
