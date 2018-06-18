@@ -7,12 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		16E34D0B77720D291D4E8FB7 /* Pods_RestApiAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 055220D5E6F1CE0310DAC3E7 /* Pods_RestApiAppTests.framework */; };
+		0AAE3E1747892435EF329A8D /* Pods_RestApiAppUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5827E8795CFABC33C4724F85 /* Pods_RestApiAppUITests.framework */; };
 		21C6A2C41A659FDE871DED79 /* Pods_RestApiApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8FF15756B73EE1CD543FB5D4 /* Pods_RestApiApp.framework */; };
-		44CFEB3BB96B622D11161522 /* Pods_RestApiApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F709911C20CA6D4000A18739 /* Pods_RestApiApp.framework */; };
 		6B4CE02C3C849549229C32CD /* Pods_RestApiAppAlamofireTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E981B47CEACAB16D10D63F5C /* Pods_RestApiAppAlamofireTests.framework */; };
-		F705CAEC20CA7EC600A7D5B5 /* customResponseProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F705CAEB20CA7EC600A7D5B5 /* customResponseProtocol.swift */; };
+		9663B0C9EC65312C2E5941A6 /* Pods_RestApiAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7F82D8420D1442900B41D16 /* Pods_RestApiAppTests.framework */; };
+		96CAAA301C20208FA357DF35 /* Pods_RestApiApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7F82D8220D143D500B41D16 /* Pods_RestApiApp.framework */; };
 		F754772920C69F6100261A39 /* RestApiAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F754772820C69F6100261A39 /* RestApiAppUITests.swift */; };
+		F75B4F7120CEB0B400832AC1 /* URLExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F75B4F7020CEB0B400832AC1 /* URLExtension.swift */; };
+		F75B4F7320CFACF500832AC1 /* MockApiTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F75B4F7220CFACF500832AC1 /* MockApiTests.swift */; };
 		F787E26720BFEAAD002E3CBE /* Species.swift in Sources */ = {isa = PBXBuildFile; fileRef = F787E26220BFEAAD002E3CBE /* Species.swift */; };
 		F787E26820BFEAAD002E3CBE /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F787E26320BFEAAD002E3CBE /* NetworkManager.swift */; };
 		F787E26920BFEAAD002E3CBE /* SpeciesWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F787E26420BFEAAD002E3CBE /* SpeciesWrapper.swift */; };
@@ -21,6 +23,11 @@
 		F787E27220C137BF002E3CBE /* MockSpeciesWrapper.json in Resources */ = {isa = PBXBuildFile; fileRef = F787E27120C137BF002E3CBE /* MockSpeciesWrapper.json */; };
 		F787E27420C14FE4002E3CBE /* MockEmptySpeciesWrapper.json in Resources */ = {isa = PBXBuildFile; fileRef = F787E27320C14FE4002E3CBE /* MockEmptySpeciesWrapper.json */; };
 		F79AF4B520CA5EEF006F91A7 /* RestApiAppAlamofireTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F79AF4B420CA5EEF006F91A7 /* RestApiAppAlamofireTests.swift */; };
+		F7BEA56420D1373F0033FFE5 /* Networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = F705CAEB20CA7EC600A7D5B5 /* Networking.swift */; };
+		F7BEA56620D137DF0033FFE5 /* MockSpeciesWrapper.json in Resources */ = {isa = PBXBuildFile; fileRef = F787E27120C137BF002E3CBE /* MockSpeciesWrapper.json */; };
+		F7BEA56720D137DF0033FFE5 /* MockEmptySpeciesWrapper.json in Resources */ = {isa = PBXBuildFile; fileRef = F787E27320C14FE4002E3CBE /* MockEmptySpeciesWrapper.json */; };
+		F7BEA56820D13E0E0033FFE5 /* MockSpeciesWrapper.json in Resources */ = {isa = PBXBuildFile; fileRef = F787E27120C137BF002E3CBE /* MockSpeciesWrapper.json */; };
+		F7BEA56920D13E0E0033FFE5 /* MockEmptySpeciesWrapper.json in Resources */ = {isa = PBXBuildFile; fileRef = F787E27320C14FE4002E3CBE /* MockEmptySpeciesWrapper.json */; };
 		F7E4B8C120A1DBBD00364AE4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7E4B8C020A1DBBD00364AE4 /* AppDelegate.swift */; };
 		F7E4B8C320A1DBBD00364AE4 /* SpeciesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7E4B8C220A1DBBD00364AE4 /* SpeciesViewController.swift */; };
 		F7E4B8C620A1DBBD00364AE4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F7E4B8C420A1DBBD00364AE4 /* Main.storyboard */; };
@@ -55,7 +62,10 @@
 
 /* Begin PBXFileReference section */
 		055220D5E6F1CE0310DAC3E7 /* Pods_RestApiAppTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RestApiAppTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		27A06CC37DEA4FF4A6BAF05D /* Pods-RestApiAppUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RestApiAppUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RestApiAppUITests/Pods-RestApiAppUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		5574CEE4A6E2C4A250F000D6 /* Pods-RestApiAppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RestApiAppTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-RestApiAppTests/Pods-RestApiAppTests.release.xcconfig"; sourceTree = "<group>"; };
+		5827E8795CFABC33C4724F85 /* Pods_RestApiAppUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RestApiAppUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6C32E1E02973D166CF83990D /* Pods-RestApiAppUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RestApiAppUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-RestApiAppUITests/Pods-RestApiAppUITests.release.xcconfig"; sourceTree = "<group>"; };
 		8FF15756B73EE1CD543FB5D4 /* Pods_RestApiApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RestApiApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9EB06B64070B18C8B5F0768B /* Pods-RestApiAppAlamofireTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RestApiAppAlamofireTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-RestApiAppAlamofireTests/Pods-RestApiAppAlamofireTests.release.xcconfig"; sourceTree = "<group>"; };
 		C7C0FCF55A01E76C46816BC1 /* Pods-RestApiApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RestApiApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RestApiApp/Pods-RestApiApp.debug.xcconfig"; sourceTree = "<group>"; };
@@ -63,7 +73,8 @@
 		CCF244A3A058BB02F31C5E4D /* Pods-RestApiAppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RestApiAppTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RestApiAppTests/Pods-RestApiAppTests.debug.xcconfig"; sourceTree = "<group>"; };
 		DFEAF5998EBB0A93B8CBD4FD /* Pods-RestApiAppAlamofireTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RestApiAppAlamofireTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RestApiAppAlamofireTests/Pods-RestApiAppAlamofireTests.debug.xcconfig"; sourceTree = "<group>"; };
 		E981B47CEACAB16D10D63F5C /* Pods_RestApiAppAlamofireTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RestApiAppAlamofireTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		F705CAEB20CA7EC600A7D5B5 /* customResponseProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = customResponseProtocol.swift; sourceTree = "<group>"; };
+		F705CAEB20CA7EC600A7D5B5 /* Networking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Networking.swift; sourceTree = "<group>"; };
+		F707103820D246ED002606D4 /* Alamofire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Alamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F709911620CA6CBC00A18739 /* Pods_RestApiApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Pods_RestApiApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F709911820CA6CC300A18739 /* Pods_RestApiApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Pods_RestApiApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F709911A20CA6D0600A18739 /* Alamofire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Alamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -71,6 +82,8 @@
 		F754772620C69F6100261A39 /* RestApiAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RestApiAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F754772820C69F6100261A39 /* RestApiAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestApiAppUITests.swift; sourceTree = "<group>"; };
 		F754772A20C69F6100261A39 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F75B4F7020CEB0B400832AC1 /* URLExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLExtension.swift; sourceTree = "<group>"; };
+		F75B4F7220CFACF500832AC1 /* MockApiTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockApiTests.swift; sourceTree = "<group>"; };
 		F787E26220BFEAAD002E3CBE /* Species.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Species.swift; sourceTree = "<group>"; };
 		F787E26320BFEAAD002E3CBE /* NetworkManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		F787E26420BFEAAD002E3CBE /* SpeciesWrapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpeciesWrapper.swift; sourceTree = "<group>"; };
@@ -82,6 +95,7 @@
 		F79AF4B420CA5EEF006F91A7 /* RestApiAppAlamofireTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestApiAppAlamofireTests.swift; sourceTree = "<group>"; };
 		F79AF4B620CA5EEF006F91A7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F79AF4BD20CA64E7006F91A7 /* Alamofire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Alamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F7BEA56B20D140770033FFE5 /* Pods_RestApiApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Pods_RestApiApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F7E4B8BD20A1DBBD00364AE4 /* RestApiApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RestApiApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F7E4B8C020A1DBBD00364AE4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F7E4B8C220A1DBBD00364AE4 /* SpeciesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeciesViewController.swift; sourceTree = "<group>"; };
@@ -92,6 +106,8 @@
 		F7E4B8D120A1DBBD00364AE4 /* RestApiAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RestApiAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F7E4B8D520A1DBBD00364AE4 /* RestApiAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestApiAppTests.swift; sourceTree = "<group>"; };
 		F7E4B8D720A1DBBD00364AE4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F7F82D8220D143D500B41D16 /* Pods_RestApiApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Pods_RestApiApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F7F82D8420D1442900B41D16 /* Pods_RestApiAppTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Pods_RestApiAppTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +115,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0AAE3E1747892435EF329A8D /* Pods_RestApiAppUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -115,7 +132,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				21C6A2C41A659FDE871DED79 /* Pods_RestApiApp.framework in Frameworks */,
-				44CFEB3BB96B622D11161522 /* Pods_RestApiApp.framework in Frameworks */,
+				96CAAA301C20208FA357DF35 /* Pods_RestApiApp.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -123,7 +140,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				16E34D0B77720D291D4E8FB7 /* Pods_RestApiAppTests.framework in Frameworks */,
+				9663B0C9EC65312C2E5941A6 /* Pods_RestApiAppTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -133,6 +150,10 @@
 		CE3D9516395BC600A8A2D2D4 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				F707103820D246ED002606D4 /* Alamofire.framework */,
+				F7F82D8420D1442900B41D16 /* Pods_RestApiAppTests.framework */,
+				F7F82D8220D143D500B41D16 /* Pods_RestApiApp.framework */,
+				F7BEA56B20D140770033FFE5 /* Pods_RestApiApp.framework */,
 				F709911C20CA6D4000A18739 /* Pods_RestApiApp.framework */,
 				F709911A20CA6D0600A18739 /* Alamofire.framework */,
 				F709911820CA6CC300A18739 /* Pods_RestApiApp.framework */,
@@ -141,6 +162,7 @@
 				8FF15756B73EE1CD543FB5D4 /* Pods_RestApiApp.framework */,
 				E981B47CEACAB16D10D63F5C /* Pods_RestApiAppAlamofireTests.framework */,
 				055220D5E6F1CE0310DAC3E7 /* Pods_RestApiAppTests.framework */,
+				5827E8795CFABC33C4724F85 /* Pods_RestApiAppUITests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -154,6 +176,8 @@
 				9EB06B64070B18C8B5F0768B /* Pods-RestApiAppAlamofireTests.release.xcconfig */,
 				CCF244A3A058BB02F31C5E4D /* Pods-RestApiAppTests.debug.xcconfig */,
 				5574CEE4A6E2C4A250F000D6 /* Pods-RestApiAppTests.release.xcconfig */,
+				27A06CC37DEA4FF4A6BAF05D /* Pods-RestApiAppUITests.debug.xcconfig */,
+				6C32E1E02973D166CF83990D /* Pods-RestApiAppUITests.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -172,6 +196,7 @@
 			children = (
 				F787E26520BFEAAD002E3CBE /* Constants.swift */,
 				F787E26620BFEAAD002E3CBE /* DateExtension.swift */,
+				F75B4F7020CEB0B400832AC1 /* URLExtension.swift */,
 			);
 			name = Helpers;
 			sourceTree = "<group>";
@@ -180,7 +205,7 @@
 			isa = PBXGroup;
 			children = (
 				F787E26320BFEAAD002E3CBE /* NetworkManager.swift */,
-				F705CAEB20CA7EC600A7D5B5 /* customResponseProtocol.swift */,
+				F705CAEB20CA7EC600A7D5B5 /* Networking.swift */,
 				F787E26E20BFEAFE002E3CBE /* Model */,
 			);
 			name = API;
@@ -246,6 +271,7 @@
 		F7E4B8D420A1DBBD00364AE4 /* RestApiAppTests */ = {
 			isa = PBXGroup;
 			children = (
+				F75B4F7220CFACF500832AC1 /* MockApiTests.swift */,
 				F7E4B8D520A1DBBD00364AE4 /* RestApiAppTests.swift */,
 				F7E4B8D720A1DBBD00364AE4 /* Info.plist */,
 				F787E27120C137BF002E3CBE /* MockSpeciesWrapper.json */,
@@ -261,9 +287,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = F754772F20C69F6100261A39 /* Build configuration list for PBXNativeTarget "RestApiAppUITests" */;
 			buildPhases = (
+				CAAF38F8B6A0A2F4A724769A /* [CP] Check Pods Manifest.lock */,
 				F754772220C69F6100261A39 /* Sources */,
 				F754772320C69F6100261A39 /* Frameworks */,
 				F754772420C69F6100261A39 /* Resources */,
+				28E99B947135151D37501997 /* [CP] Embed Pods Frameworks */,
+				B99A364763EC1108BB190CFB /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -394,6 +423,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F7BEA56820D13E0E0033FFE5 /* MockSpeciesWrapper.json in Resources */,
+				F7BEA56920D13E0E0033FFE5 /* MockEmptySpeciesWrapper.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -408,6 +439,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F7BEA56620D137DF0033FFE5 /* MockSpeciesWrapper.json in Resources */,
+				F7BEA56720D137DF0033FFE5 /* MockEmptySpeciesWrapper.json in Resources */,
 				F7E4B8CB20A1DBBD00364AE4 /* LaunchScreen.storyboard in Resources */,
 				F7E4B8C820A1DBBD00364AE4 /* Assets.xcassets in Resources */,
 				F7E4B8C620A1DBBD00364AE4 /* Main.storyboard in Resources */,
@@ -439,6 +472,24 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-RestApiApp/Pods-RestApiApp-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		28E99B947135151D37501997 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-RestApiAppUITests/Pods-RestApiAppUITests-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-RestApiAppUITests/Pods-RestApiAppUITests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		2B5531CCB335AE755ED74A86 /* [CP] Embed Pods Frameworks */ = {
@@ -546,6 +597,21 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-RestApiAppTests/Pods-RestApiAppTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		B99A364763EC1108BB190CFB /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-RestApiAppUITests/Pods-RestApiAppUITests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		C7FC0076686BF9D7CA7D7DBD /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -559,6 +625,24 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-RestApiAppTests/Pods-RestApiAppTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		CAAF38F8B6A0A2F4A724769A /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-RestApiAppUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		E2AFF22423AAE707094D7A23 /* [CP] Embed Pods Frameworks */ = {
@@ -605,8 +689,9 @@
 				F787E26820BFEAAD002E3CBE /* NetworkManager.swift in Sources */,
 				F787E26B20BFEAAD002E3CBE /* DateExtension.swift in Sources */,
 				F787E26A20BFEAAD002E3CBE /* Constants.swift in Sources */,
-				F705CAEC20CA7EC600A7D5B5 /* customResponseProtocol.swift in Sources */,
+				F7BEA56420D1373F0033FFE5 /* Networking.swift in Sources */,
 				F7E4B8C320A1DBBD00364AE4 /* SpeciesViewController.swift in Sources */,
+				F75B4F7120CEB0B400832AC1 /* URLExtension.swift in Sources */,
 				F787E26720BFEAAD002E3CBE /* Species.swift in Sources */,
 				F7E4B8C120A1DBBD00364AE4 /* AppDelegate.swift in Sources */,
 				F787E26920BFEAAD002E3CBE /* SpeciesWrapper.swift in Sources */,
@@ -617,6 +702,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F75B4F7320CFACF500832AC1 /* MockApiTests.swift in Sources */,
 				F7E4B8D620A1DBBD00364AE4 /* RestApiAppTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -663,7 +749,10 @@
 /* Begin XCBuildConfiguration section */
 		F754772D20C69F6100261A39 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 27A06CC37DEA4FF4A6BAF05D /* Pods-RestApiAppUITests.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
+				CLANG_CXX_LIBRARY = "libstdc++";
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = RestApiAppUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -677,7 +766,10 @@
 		};
 		F754772E20C69F6100261A39 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6C32E1E02973D166CF83990D /* Pods-RestApiAppUITests.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
+				CLANG_CXX_LIBRARY = "libstdc++";
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = RestApiAppUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -693,7 +785,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = DFEAF5998EBB0A93B8CBD4FD /* Pods-RestApiAppAlamofireTests.debug.xcconfig */;
 			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = RestApiAppAlamofireTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -709,7 +801,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 9EB06B64070B18C8B5F0768B /* Pods-RestApiAppAlamofireTests.release.xcconfig */;
 			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = RestApiAppAlamofireTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -724,6 +816,7 @@
 		F7E4B8D820A1DBBD00364AE4 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
@@ -781,6 +874,7 @@
 		F7E4B8D920A1DBBD00364AE4 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
@@ -832,11 +926,13 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = C7C0FCF55A01E76C46816BC1 /* Pods-RestApiApp.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = RestApiApp/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				MACH_O_TYPE = mh_execute;
 				PRODUCT_BUNDLE_IDENTIFIER = com.example.RestApiApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -848,11 +944,13 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = C9BE0B3AFB24A84D9A2826BC /* Pods-RestApiApp.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = RestApiApp/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				MACH_O_TYPE = mh_execute;
 				PRODUCT_BUNDLE_IDENTIFIER = com.example.RestApiApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -864,7 +962,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = CCF244A3A058BB02F31C5E4D /* Pods-RestApiAppTests.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = RestApiAppTests/Info.plist;
@@ -881,7 +979,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 5574CEE4A6E2C4A250F000D6 /* Pods-RestApiAppTests.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = RestApiAppTests/Info.plist;

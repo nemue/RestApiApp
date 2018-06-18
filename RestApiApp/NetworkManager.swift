@@ -9,20 +9,27 @@
 import Foundation
 import Alamofire
 
-class NetworkManager {
+struct NetworkManager {
+    
+    var networking: Networking
+    var endpoint: String
+    
+    init(networking: Networking = AlamofireNetworking(), endpoint: String = Constants.Endpoints.speciesEndpoint) {
+        self.networking = networking
+        self.endpoint = endpoint
+    }
     
     // MARK: - Access Methods
     
-    class func getFirstSpeciesWrapper(completionHandler: @escaping (Result<SpeciesWrapper>) -> Void){
-        let endpoint = Constants.Endpoints.speciesEndpoint
-        getSpeciesAtPath(endpoint, completionHandler: completionHandler)
+    func getFirstSpeciesWrapper(completionHandler: @escaping (NetworkingResult<SpeciesWrapper>) -> Void){
+        getSpeciesAtPath(self.endpoint, completionHandler: completionHandler)
     }
     
-    class func getNextSpeciesWrapper(_ wrapper: SpeciesWrapper?,
-                                     completionHandler: @escaping (Result<SpeciesWrapper>) -> Void) {
+    func getNextSpeciesWrapper(_ wrapper: SpeciesWrapper?,
+                                     completionHandler: @escaping (NetworkingResult<SpeciesWrapper>) -> Void) {
         guard let nextUrl = wrapper?.next else {
             let error = BackendError.objectSerialization(reason: "Did not get wrapper for more species")
-            completionHandler(Result.failure(error))
+            completionHandler(NetworkingResult.failure(error))
             return
         }
         getSpeciesAtPath(nextUrl, completionHandler: completionHandler)
@@ -30,40 +37,31 @@ class NetworkManager {
     
     // MARK: - Network Requests
     
-    private class func getSpeciesAtPath(_ path: String,
-                                        completionHandler: @escaping (Result<SpeciesWrapper>) -> Void, useAlamofire: Bool? = true) {
+    private func getSpeciesAtPath(_ path: String,
+                                        completionHandler: @escaping (NetworkingResult<SpeciesWrapper>) -> Void, useAlamofire: Bool? = true) {
 
-        guard let url = makeUrlHttps(path: path) else {
+        guard let httpsUrl = self.networking.stringToUrl(string: path) else {
             let error = BackendError.urlError(reason: "Tried to load an invalid URL")
-            completionHandler(Result.failure(error))
+            completionHandler(NetworkingResult.failure(error))
             return
         }
         
         // API request:
         
-        let _ = Alamofire.request(url).responseData { response in
-            if let error = response.result.error {
-                completionHandler(Result.failure(error))
+        let _ = networking.request(url: httpsUrl) { response in
+            guard let data = response.value as? NSData else {
+                print("Response value couldn't be saved as NSData")
                 return
             }
-            let speciesWrapperResult: Result<SpeciesWrapper> = self.parseJSON(response.result)
+            let speciesWrapperResult: NetworkingResult<SpeciesWrapper> = self.parseJSON(data)
             completionHandler(speciesWrapperResult)
         }
     }
     
     // MARK: - Serialisation
     
-    class func parseJSON<T: Codable>(_ result: Result<Data>) -> Result<T>{
-        guard result.error == nil else {
-            print(result.error!)
-            return Result.failure(result.error!)
-        }
-
-        guard let json = result.value else {
-            print("Didn't get species object as JSON from API")
-            return Result.failure(BackendError.objectSerialization(reason: "Did not get JSON dictionary in response"))
-        }
-        
+    func parseJSON<T: Codable>(_ result: NSData) -> NetworkingResult<T>{
+        let json = result as Data
         let decoder = JSONDecoder()
         var wrapper: T? = nil
         do {
@@ -72,23 +70,11 @@ class NetworkManager {
         catch {
             print("Error decoding JSON: \(error)")
         }
-        
-        return Result.success(wrapper!) // wrapper can't be nil after try/catch
-    }
-    
-    // MARK: - Helper Methods
-    
-    class func makeUrlHttps(path: String) -> URL?{
-        guard var urlComponents = URLComponents(string: path) else {
-            return nil
-        }
-        urlComponents.scheme = "https"
-        
-        guard let url = try? urlComponents.asURL() else {
-            return nil
+        guard let successWrapper = wrapper else {
+            return NetworkingResult.failure(BackendError.objectSerialization(reason: "Optional wrapper could not be unwrapped."))
         }
         
-        return url
+        return NetworkingResult.success(successWrapper)
     }
 }
 

@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "RestApiAppTests/RestApiAppTests.swift"
-            timestampString = "550137642.483266"
+            timestampString = "551007469.425915"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "22"
-            endingLineNumber = "22"
+            startingLineNumber = "23"
+            endingLineNumber = "23"
             landmarkName = "testInitFromDecoderWithFullSpecies()"
             landmarkType = "7">
          </BreakpointContent>

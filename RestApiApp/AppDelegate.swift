@@ -15,7 +15,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        if (ProcessInfo.processInfo.arguments.contains("MockApiCall")) {
+            let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
+            
+            guard let initialViewController = storyboard.instantiateInitialViewController() as? SpeciesViewController else {
+                print("ViewController couldn't be instatiated.")
+                return false
+            }
+            let mockNetworking = MockNetworking()
+            let fileUrl = ProcessInfo.processInfo.arguments[2]
+            let networkManager = NetworkManager(networking: mockNetworking, endpoint: fileUrl)
+            
+            initialViewController.changeNetworkManager(to: networkManager)
+            
+            self.window?.rootViewController = initialViewController
+            self.window?.makeKeyAndVisible()
+        }
         return true
     }
 

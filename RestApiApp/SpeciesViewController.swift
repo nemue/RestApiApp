@@ -13,10 +13,17 @@ class SpeciesViewController: UIViewController {
     
     // MARK: - Properties
     
-    let cellIdentifier = Constants.SpeciesViewConstants.speciesCellIdentifier
+    private let cellIdentifier = Constants.SpeciesViewConstants.speciesCellIdentifier
+    private var isLoadingSpecies = false
+    private var networkManager = NetworkManager(networking: AlamofireNetworking())
     var species: [Species]?
     var speciesWrapper: SpeciesWrapper?
-    var isLoadingSpecies = false
+    
+    // MARK: - Change NetworkManager for Testing
+    
+    func changeNetworkManager(to networkmanager: NetworkManager) {
+        self.networkManager = networkmanager
+    }
 
     // MARK: - Outlets
     
@@ -26,6 +33,8 @@ class SpeciesViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.tableView.accessibilityIdentifier = "SpeciesTableViewIdentifier"
         self.tableView?.contentInset = UIEdgeInsetsMake(20.0, 0.0, 0.0, 0.0)
         self.loadSpeciesFromFirstWrapper()
     }
@@ -35,7 +44,7 @@ class SpeciesViewController: UIViewController {
     func loadSpeciesFromFirstWrapper() {
         isLoadingSpecies = true
         
-        let completionHandler = {(result: Result<SpeciesWrapper>) in
+        let completionHandler = {(result: NetworkingResult<SpeciesWrapper>) in
             if let error = result.error {
                 self.isLoadingSpecies = false
                 let alert = UIAlertController(title: "Error", message: "Could not load first species: \(error.localizedDescription)", preferredStyle: UIAlertControllerStyle.alert)
@@ -49,7 +58,7 @@ class SpeciesViewController: UIViewController {
             }
         }
         
-        NetworkManager.getFirstSpeciesWrapper (completionHandler: completionHandler)
+        networkManager.getFirstSpeciesWrapper (completionHandler: completionHandler)
     }
     
     private func loadSpeciesFromNextWrapper() {
@@ -59,7 +68,7 @@ class SpeciesViewController: UIViewController {
             let totalSpeciesCount = wrapper.count,
             species.count < totalSpeciesCount {
             
-            let completionHandler = {(result: Result<SpeciesWrapper>) in
+            let completionHandler = {(result: NetworkingResult<SpeciesWrapper>) in
                 if let error = result.error {
                     self.isLoadingSpecies = false
                     let alert = UIAlertController(title: "Error", message: "Could not load more species: \(error.localizedDescription)", preferredStyle: UIAlertControllerStyle.alert)
@@ -74,7 +83,7 @@ class SpeciesViewController: UIViewController {
                 }
             }
             
-            NetworkManager.getNextSpeciesWrapper(wrapper, completionHandler: completionHandler)
+            networkManager.getNextSpeciesWrapper(wrapper, completionHandler: completionHandler)
         }
     }
     

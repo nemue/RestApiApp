@@ -3,6 +3,7 @@ platform :ios, '10.0'
 use_frameworks!
 
 def shared_pods
+    inherit! :search_paths
     pod 'Alamofire', '~> 4.7'
 end
 
@@ -11,6 +12,10 @@ target 'RestApiApp' do
 end
 
 target 'RestApiAppTests' do
+    shared_pods
+end
+
+target 'RestApiAppUITests' do
     shared_pods
 end
 

@@ -12,10 +12,11 @@ import XCTest
 class RestApiAppTests: XCTestCase {
     
     // MARK: Network Manager Tests
+    let networkManager = NetworkManager(networking: AlamofireNetworking())
     
     func testMakeUrlHttps() {
         let url = "http://test.com"
-        let newUrl = NetworkManager.makeUrlHttps(path: url)
+        let newUrl = URL.makeHttpsUrlFromString(path: url)
         XCTAssertTrue("https://test.com" == String(describing: newUrl!))
     }
     

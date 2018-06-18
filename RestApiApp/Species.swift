@@ -54,13 +54,13 @@ extension Species {
         // Non-String Properties
         
         let averageHeightAsString = try wrapperContainer.decodeIfPresent(String.self, forKey: .AverageHeight)
-        self.averageHeight = anyTypeFromOptionalString(typeOf: self.averageHeight, optional: averageHeightAsString) as? Int
+        self.averageHeight = anyTypeFromOptionalString(optional: averageHeightAsString)
 
         let createdAsString = try wrapperContainer.decodeIfPresent(String.self, forKey: .Created)
-        self.created = anyTypeFromOptionalString(typeOf: self.created, optional: createdAsString) as? Date
+        self.created = anyTypeFromOptionalString(optional: createdAsString)
         
         let editedAsString = try wrapperContainer.decodeIfPresent(String.self, forKey: .Edited)
-        self.edited = anyTypeFromOptionalString(typeOf: self.edited, optional: editedAsString) as? Date
+        self.edited = anyTypeFromOptionalString(optional: editedAsString)
         
         // Array Properties
         
@@ -108,21 +108,20 @@ extension Species {
         return returnValue
     }
     
-    private func anyTypeFromOptionalString<T>(typeOf: T, optional: String?) -> T? {
-        var returnValue: T? = nil
-        
-        if let value = optional {
-            switch typeOf {
-            case is Int:
-                returnValue = Int(value) as? T
-            case is Date:
-                returnValue = Date.fromString(date: value) as? T
-            default:
-                print("Could not create object of type \(T.self) from optional String.")
-            }
+    private func anyTypeFromOptionalString<T>(optional: String?) -> T? {
+        guard let value = optional else {
+            return nil
         }
         
-        return returnValue
+        switch T.self {
+        case is Int.Type:
+            return Int(value) as? T
+        case is Date.Type:
+            return Date.fromString(date: value) as? T
+        default:
+            print("Could not create object of type \(T.self) from \(String?.self).")
+            return nil
+        }
     }
 }
 

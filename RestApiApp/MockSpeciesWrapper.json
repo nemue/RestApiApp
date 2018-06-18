@@ -1,6 +1,6 @@
 {
-    "count": 10,
-    "next": null,
+    "count": 37,
+    "next": "https://swapi.co/api/species/?page=2",
     "previous": null,
     "results": [
     {
