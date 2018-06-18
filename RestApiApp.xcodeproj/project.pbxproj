@@ -14,7 +14,6 @@
 		96CAAA301C20208FA357DF35 /* Pods_RestApiApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7F82D8220D143D500B41D16 /* Pods_RestApiApp.framework */; };
 		F754772920C69F6100261A39 /* RestApiAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F754772820C69F6100261A39 /* RestApiAppUITests.swift */; };
 		F75B4F7120CEB0B400832AC1 /* URLExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F75B4F7020CEB0B400832AC1 /* URLExtension.swift */; };
-		F75B4F7320CFACF500832AC1 /* MockApiTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F75B4F7220CFACF500832AC1 /* MockApiTests.swift */; };
 		F787E26720BFEAAD002E3CBE /* Species.swift in Sources */ = {isa = PBXBuildFile; fileRef = F787E26220BFEAAD002E3CBE /* Species.swift */; };
 		F787E26820BFEAAD002E3CBE /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F787E26320BFEAAD002E3CBE /* NetworkManager.swift */; };
 		F787E26920BFEAAD002E3CBE /* SpeciesWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F787E26420BFEAAD002E3CBE /* SpeciesWrapper.swift */; };
@@ -83,7 +82,6 @@
 		F754772820C69F6100261A39 /* RestApiAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestApiAppUITests.swift; sourceTree = "<group>"; };
 		F754772A20C69F6100261A39 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F75B4F7020CEB0B400832AC1 /* URLExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLExtension.swift; sourceTree = "<group>"; };
-		F75B4F7220CFACF500832AC1 /* MockApiTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockApiTests.swift; sourceTree = "<group>"; };
 		F787E26220BFEAAD002E3CBE /* Species.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Species.swift; sourceTree = "<group>"; };
 		F787E26320BFEAAD002E3CBE /* NetworkManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		F787E26420BFEAAD002E3CBE /* SpeciesWrapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpeciesWrapper.swift; sourceTree = "<group>"; };
@@ -271,7 +269,6 @@
 		F7E4B8D420A1DBBD00364AE4 /* RestApiAppTests */ = {
 			isa = PBXGroup;
 			children = (
-				F75B4F7220CFACF500832AC1 /* MockApiTests.swift */,
 				F7E4B8D520A1DBBD00364AE4 /* RestApiAppTests.swift */,
 				F7E4B8D720A1DBBD00364AE4 /* Info.plist */,
 				F787E27120C137BF002E3CBE /* MockSpeciesWrapper.json */,
@@ -702,7 +699,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F75B4F7320CFACF500832AC1 /* MockApiTests.swift in Sources */,
 				F7E4B8D620A1DBBD00364AE4 /* RestApiAppTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
