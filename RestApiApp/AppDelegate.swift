@@ -23,7 +23,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 return false
             }
             let mockNetworking = MockNetworking()
-            let fileUrl = ProcessInfo.processInfo.arguments[2]
+            let fileUrl = "FileDoesNotExist" //ProcessInfo.processInfo.arguments[2]
             let networkManager = NetworkManager(networking: mockNetworking, endpoint: fileUrl)
             
             initialViewController.changeNetworkManager(to: networkManager)

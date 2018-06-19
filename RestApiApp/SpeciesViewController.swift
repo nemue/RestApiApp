@@ -36,6 +36,11 @@ class SpeciesViewController: UIViewController {
         
         self.tableView.accessibilityIdentifier = "SpeciesTableViewIdentifier"
         self.tableView?.contentInset = UIEdgeInsetsMake(20.0, 0.0, 0.0, 0.0)
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
         self.loadSpeciesFromFirstWrapper()
     }
     
@@ -48,7 +53,7 @@ class SpeciesViewController: UIViewController {
             if let error = result.error {
                 self.isLoadingSpecies = false
                 let alert = UIAlertController(title: "Error", message: "Could not load first species: \(error.localizedDescription)", preferredStyle: UIAlertControllerStyle.alert)
-                alert.addAction(UIAlertAction(title: "Click", style: UIAlertActionStyle.default, handler: nil))
+                alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
                 self.present(alert, animated: true, completion: nil)
             }
             else if let speciesWrapper = result.value {
@@ -72,7 +77,7 @@ class SpeciesViewController: UIViewController {
                 if let error = result.error {
                     self.isLoadingSpecies = false
                     let alert = UIAlertController(title: "Error", message: "Could not load more species: \(error.localizedDescription)", preferredStyle: UIAlertControllerStyle.alert)
-                    alert.addAction(UIAlertAction(title: "Click", style: UIAlertActionStyle.default, handler: nil))
+                    alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
                     self.present(alert, animated: true, completion: nil)
                 }
                     

@@ -11,7 +11,7 @@ import Alamofire
 
 protocol Networking {
     func request(url: URL, completionHandler: @escaping (NetworkingResult<NSData?>) -> Void)
-    func stringToUrl(string: String) -> URL?
+    func stringToUrl(string: String) throws -> URL
 }
 
 struct AlamofireNetworking: Networking {
@@ -30,12 +30,10 @@ struct AlamofireNetworking: Networking {
         }
     }
     
-    func stringToUrl(string: String) -> URL? {
+    func stringToUrl(string: String) throws -> URL {
 
         guard let httpsUrl = URL.makeHttpsUrlFromString(path: string) else {
-            let error = BackendError.urlError(reason: "Tried to load an invalid URL")
-            print(error)
-            return nil
+            throw BackendError.urlError(reason: "Tried to load an invalid URL")
         }
         
         return httpsUrl
@@ -61,12 +59,11 @@ class MockNetworking: Networking {
         }
     }
     
-    func stringToUrl(string: String) -> URL? {
+    func stringToUrl(string: String) throws -> URL {
         let bundle = Bundle(for: type(of: self))
         
         guard let fileUrl = bundle.url(forResource: string, withExtension: "json") else {
-            print("JSON file not found.")
-            return nil
+            throw BackendError.urlError(reason: "File not found.")
         }
         
         return fileUrl

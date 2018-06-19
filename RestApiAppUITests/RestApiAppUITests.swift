@@ -33,7 +33,6 @@ class RestApiAppUITests: XCTestCase {
         // Given:
         
         let numberOfExpectedRows = 10
-        
         let speciesCells = self.app.tables["SpeciesTableViewIdentifier"].cells
         let speciesArray = saveCellLabelsToStringArray(cells: speciesCells, cellCount: numberOfExpectedRows)
         let textInFirstCell = speciesArray[0]
@@ -45,9 +44,10 @@ class RestApiAppUITests: XCTestCase {
         XCTAssertEqual(speciesCells.count, numberOfExpectedRows)
         XCTAssertEqual(textInFirstCell, "Hutt")
         XCTAssertEqual(textInLastCell, "Dug")
-    }
-    
+    }    
 }
+
+// MARK: - Helper Methods
 
 extension RestApiAppUITests {
     func saveCellLabelsToStringArray(cells: XCUIElementQuery, cellCount: Int) -> [String] {

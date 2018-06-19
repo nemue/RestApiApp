@@ -39,9 +39,12 @@ struct NetworkManager {
     
     private func getSpeciesAtPath(_ path: String,
                                         completionHandler: @escaping (NetworkingResult<SpeciesWrapper>) -> Void, useAlamofire: Bool? = true) {
+        var httpsUrl: URL
 
-        guard let httpsUrl = self.networking.stringToUrl(string: path) else {
-            let error = BackendError.urlError(reason: "Tried to load an invalid URL")
+        do {
+            httpsUrl = try self.networking.stringToUrl(string: path)
+        }
+        catch {
             completionHandler(NetworkingResult.failure(error))
             return
         }
