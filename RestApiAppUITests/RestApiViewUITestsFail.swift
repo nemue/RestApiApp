@@ -15,10 +15,12 @@ class RestApiViewUITestsFail: XCTestCase {
     override func setUp() {
         super.setUp()
         continueAfterFailure = false
-        app.launchArguments.append("MockApiCall")
-        app.launchArguments.append("FileDoesNotExist")
+
+        app.launchEnvironment["MockApiCall"] = "true"
+        app.launchEnvironment["FileDoesNotExist"] = "true"
+
         app.launch()
-        
+
         self.window = UIWindow()
     }
     

@@ -292,7 +292,6 @@
 				F754772320C69F6100261A39 /* Frameworks */,
 				F754772420C69F6100261A39 /* Resources */,
 				28E99B947135151D37501997 /* [CP] Embed Pods Frameworks */,
-				B99A364763EC1108BB190CFB /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -313,7 +312,6 @@
 				F79AF4AF20CA5EEF006F91A7 /* Frameworks */,
 				F79AF4B020CA5EEF006F91A7 /* Resources */,
 				E2AFF22423AAE707094D7A23 /* [CP] Embed Pods Frameworks */,
-				9763E32F9A1443E8F10B4EAF /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -334,7 +332,6 @@
 				F7E4B8BA20A1DBBD00364AE4 /* Frameworks */,
 				F7E4B8BB20A1DBBD00364AE4 /* Resources */,
 				2B5531CCB335AE755ED74A86 /* [CP] Embed Pods Frameworks */,
-				27D349AC44A1059B8947E71D /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -354,7 +351,6 @@
 				F7E4B8CE20A1DBBD00364AE4 /* Frameworks */,
 				F7E4B8CF20A1DBBD00364AE4 /* Resources */,
 				B73AB747F19B48E32F2D6374 /* [CP] Embed Pods Frameworks */,
-				C7FC0076686BF9D7CA7D7DBD /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -459,21 +455,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		27D349AC44A1059B8947E71D /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-RestApiApp/Pods-RestApiApp-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		28E99B947135151D37501997 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -564,21 +545,6 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		9763E32F9A1443E8F10B4EAF /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-RestApiAppAlamofireTests/Pods-RestApiAppAlamofireTests-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		B73AB747F19B48E32F2D6374 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -595,36 +561,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-RestApiAppTests/Pods-RestApiAppTests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		B99A364763EC1108BB190CFB /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-RestApiAppUITests/Pods-RestApiAppUITests-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		C7FC0076686BF9D7CA7D7DBD /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-RestApiAppTests/Pods-RestApiAppTests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		CAAF38F8B6A0A2F4A724769A /* [CP] Check Pods Manifest.lock */ = {

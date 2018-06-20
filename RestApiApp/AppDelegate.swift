@@ -15,6 +15,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+
+
+        print("ProcessInfo: \(ProcessInfo.processInfo.environment)")
+
         if (ProcessInfo.processInfo.arguments.contains("MockApiCall")) {
             let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
             
