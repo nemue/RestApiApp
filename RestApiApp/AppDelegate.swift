@@ -13,24 +13,31 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        if (ProcessInfo.processInfo.arguments.contains("MockApiCall")) {
+        
+        // MARK: - Test Setup
+        
+        if (ProcessInfo.processInfo.environment["TestCall"] == "true") {
             let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
             
             guard let initialViewController = storyboard.instantiateInitialViewController() as? SpeciesViewController else {
                 print("ViewController couldn't be instatiated.")
                 return false
             }
-            let mockNetworking = MockNetworking()
-            let fileUrl = "FileDoesNotExist" //ProcessInfo.processInfo.arguments[2]
-            let networkManager = NetworkManager(networking: mockNetworking, endpoint: fileUrl)
+
+            guard let fileUrl = ProcessInfo.processInfo.environment["Filename"] else {
+                print("No Filename received at launch for testing.")
+                return false
+            }
             
-            initialViewController.changeNetworkManager(to: networkManager)
+            let mockNetworking = MockNetworking()
+            let mockNetworkManager = NetworkManager(networking: mockNetworking, endpoint: fileUrl)
+            initialViewController.changeNetworkManager(to: mockNetworkManager)
             
             self.window?.rootViewController = initialViewController
             self.window?.makeKeyAndVisible()
         }
+        
         return true
     }
 
